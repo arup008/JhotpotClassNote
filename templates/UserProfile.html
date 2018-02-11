@@ -1,0 +1,529 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ঝটপট ক্লাস নোট</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.maateen.me/charukola-ultra-light/font.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <link href="https://fonts.maateen.me/mukti/font.css" rel="stylesheet">
+    <link href="{% static "myApp/myCSS.css" %}"rel="stylesheet">
+
+</head>
+<body data-spy="scroll" data-offset="50" background="http://healthnutsmedia.com/wp-content/uploads/2013/07/Blog-background-white-HNM-blue-gradient-blue-gear-2.png">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a onclick="goHome()" id="logo" style="font-size: x-large" class="navbar-brand" href="#">ঝটপট ক্লাস নোট</a>
+            <script>
+                function goHome() {
+                    window.location.replace('user/home')
+                }
+            </script>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li ><a style="color: white; font-size: large" href="#BasicInformation">Information</a></li>
+                <li><a style="color: white; font-size: large" href="#Interests">Interests</a></li>
+                <li><a style="color: white; font-size: large" href="#Contribution">Contribution</a></li>
+                <li><a style="color: white; font-size: large" href="#favourites">Favorites</a></li>
+                <li><a style="color: white; font-size: large" href="#suggestions">Recommendations</a></li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+<style>
+  .btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.btn-default {
+  color: #fff;
+  background-color: #0af;
+  border-color: #ccc;
+}
+
+  .btn-success1 {
+  color: #fff;
+  background-color: green;
+  border-color: #4cae4c;
+}
+    .btn-info1 {
+  color: #fff;
+  background-color: #00aaff;
+  border-color: #46b8da;
+}
+ </style>
+<style>
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 50%;
+    border-radius: 20px;
+}
+.card2 {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    border-radius: 20px;
+}
+.card3 {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 63%;
+    border-radius: 20px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card2:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card3:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+</style>
+<style>
+
+.checkBoxSeparator {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    width: 90%
+
+}
+</style>
+<style>
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+/* Create two equal columns that floats next to each other */
+.column1 {
+    float: left;
+    width: 70%;
+    padding: 10px;
+}
+.column2 {
+    float: left;
+    width: 30%;
+    padding: 10px;
+}
+.column3 {
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
+
+.column4 {
+    float: left;
+    width: 20%;
+    padding-top: 0px;
+}
+.column5 {
+    float: left;
+    width: 20%;
+    padding-left: 45px;
+    padding-top: 15px;
+}
+
+.container1 {
+    padding: 2px 30px;
+}
+.container2 {
+    padding: 2px 30px;
+    width:90%;
+}
+
+.modal1 {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        z-index: 1100;
+        display: none;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        outline: 0;
+    }
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+<div  align="center">
+    <h1 style="font-family: 'Algerian';font-size: 50px; padding-top:40px ;color: black;">User Information</h1>
+
+
+    <div id="BasicInformation" class="card">
+            <div class="column1" align="left" >
+                <h3  style="font-family: 'Algerian';font-size:30px ;padding-left: 20px; color: blue">Basic Information</h3>
+            </div>
+            <div class="row">
+                <div class="container1 column1" align="left" >
+                    <h4><label style="padding-top:2px;font-family: Georgia;font-size:20px;color: #00A000" class="control-label col-sm-2">Name:</label></h4>
+                    <div class="col-sm-10">
+                        <label style="font-family: Georgia;font-size: 17px" class="col-sm-offset-2 col-sm-9">{{ Name }}</label>
+                    </div>
+                    <h4><label style="padding-top:2px;font-family: Georgia;color: #00A000" class="control-label col-sm-2">Institution:</label></h4>
+                    <div class="col-sm-10">
+                        <label style="font-family: Georgia;font-size: 17px"class="col-sm-offset-2 col-sm-9">{{ Institution }}</label>
+                    </div>
+                    <h4><label style="padding-top:2px;font-family: Georgia;color: #00A000" class="control-label col-sm-2">Email:</label></h4>
+                    <div class="col-sm-10">
+                        <label style="font-family: Georgia;font-size: 17px" class="col-sm-offset-2 col-sm-9">{{ Email }}</label>
+                    </div>
+                </div>
+                <div class="column2" align="left">
+
+                    <br><br><br><br>
+                    <button  style="font-size: 18px" data-toggle="modal" data-target="#EditInformation" class="btn btn-info">Edit Information</button>
+                        <div class="modal1 fade" id="EditInformation" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h2 class="modal-title" align="center" >Basic Information</h2>
+                                </div>
+                                <div class="modal-body">
+                                  <form class="form-horizontal" method="post" action="{% url 'myApp:ChangeInfo' %}">
+                                      {% csrf_token %}
+
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="name">Name:</label>
+                                        <div class="col-sm-10">
+                                          <input type="text" class="form-control" id="field1" value="{{ Name }}" name="field1">
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                      <label class="control-label col-sm-2" for="Ins">Institution:</label>
+                                      <div class="col-sm-10">
+                                      <select  class="form-control" id="field2" name="field2">
+                                          {% if  Institution  == "BUET" %}
+                                              <option value="BUET" selected>BUET</option>
+                                          {% else %}
+                                              <option value="BUET">BUET</option>
+                                          {% endif %}
+                                          {% if  Institution  == "CUET" %}
+                                              <option value="CUET" selected>CUET</option>
+                                          {% else %}
+                                              <option value="CUET">CUET</option>
+                                          {% endif %}
+                                          {% if  Institution  == "KUET" %}
+                                              <option value="KUET" selected>KUET</option>
+                                          {% else %}
+                                              <option value="KUET">KUET</option>
+                                          {% endif %}
+                                          {% if  Institution == "RUET" %}
+                                              <option value="RUET" selected>RUET</option>
+                                          {% else %}
+                                              <option value="RUET">RUET</option>
+                                          {% endif %}
+                                      </select>
+                                      </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                          <button value="submit" class="btn btn-default">Confirm</button>
+                                        </div>
+                                      </div>
+                                  </form>
+                                </div>
+                              </div>
+
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+    </div>
+    <br><br>
+    <div id="Interests" class="card">
+            <div class="column3" align="left" >
+                <h3  style="font-family:'Algerian';font-size:30px;padding-left: 20px; color: blue">Interests</h3>
+            </div>
+            <div class="row">
+                <div class="container1" align="left" >
+                    {% for item in Interests %}
+                        {% if item.Int == "true" %}
+                            <label id="{{ item.TagName }}"style=" font-family: Georgia;font-size:20px;padding-left:20px; display: block; color: #00A000" class="control-label">{{ item.TagName }}</label>
+                        {% else %}
+                            <label id="{{ item.TagName }}"style=" font-family: Georgia;font-size:20px;padding-left:20px; display: none; color: #00A000" class="control-label">{{ item.TagName }}</label>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="column3">
+                    <button style="font-size: 18px" data-toggle="modal" data-target="#addInterest" class="btn btn-info col-sm-offset-8 col-sm-16">Add Interest</button>
+                    <div  class="modal1 fade" id="addInterest" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h2 class="modal-title" align="center" >Choose Interested Topics</h2>
+                                </div>
+                                <div class="modal-body">
+                                 <form class="form-horizontal" method="post" >
+                                     {% csrf_token %}
+                                      <div class="form-group">
+                                        <div align="left" class="checkBoxSeparator">
+                                            {% for item in Interests %}
+                                                {% if item.Int == "true" %}
+                                                    <span style="white-space: nowrap;"><input type="checkbox"  checked name="data" value="{{ item.TagName }}" id="{{ item.TagName }}" /><label>  {{ item.TagName }}</label></span><br/>
+                                                {% else %}
+                                                    <span style="white-space: nowrap;"><input type="checkbox"  name="data" value="{{ item.TagName }}" id="{{ item.TagName }}" /><label>  {{ item.TagName }}</label></span><br/>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-8">
+                                          <button onclick="UpdateInterest(this.form)" class="btn btn-default">Confirm</button>
+                                        </div>
+                                      </div>
+                                 </form>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+
+            <script type="text/javascript">
+                function UpdateInterest(frm) {
+                    var selchbox="";
+                    var inpfields = frm.getElementsByTagName('input');
+                    var nr_inpfields = inpfields.length;
+
+                    for(var i=0; i<nr_inpfields; i++) {
+                        if(inpfields[i].type == 'checkbox' && inpfields[i].checked == true) selchbox+="#"+inpfields[i].value;
+                    }
+
+                    $.ajax({
+                            url: 'User/UpdateInterest',
+                            data: {'q': selchbox},
+                            dataType: 'json',
+                        });
+                }
+            </script>
+
+    </div>
+    <br><br>
+
+    <div id ="Contribution"style="padding-top: 30px; padding-bottom: 30px" class="card3" >
+
+        <h3  align="left" style="font-family:'Algerian';font-size:30px;padding-left: 30px; color:blue">Your Contribution</h3>
+        {% for item in query_results %}
+        <div class="row">
+            <div class="container1" align="center" >
+
+                    <div class="card2">
+                            <div class="row">
+                                <div class="container1 column1" align="left" >
+                                    <h3 style="font-family: 'Tahoma';font-size:25px;padding-top: 15px"><label>{{ item.fileName }}</label></h3>
+
+                                    <h5 style="font-family: 'Tahoma';font-size:17px;padding-top: 10px"><label>{{ item.Institution }} >> Level-{{ item.LevelNo }},Term-{{ item.TermNo }} >> {{ item.course }}</label></h5>
+
+                                </div>
+                                <div class="column2" align="center">
+                                    <br>
+                                    <form  action="{% url 'myApp:showPdf' %}" id="previewForm" method="post" target="_blank">
+                                    {% csrf_token %}
+                                        <input type = "hidden" id="{{forloop.counter }}pdfID" name = "Field" value = "{{ item.pdfID }}" />
+                                        <button style="font-size: 18px" value="submit" class="btn btn-success">Preview</button>
+                                    </form>
+
+                                    <br>
+
+                                    <input type = "hidden" id="{{item.pdfID}}" name = "Field" value = "{{ item.pdfID }}" />
+                                    <button  style="font-size: 18px" data-toggle="modal" data-target="#deletePdf" class="btn btn-danger">Delete</button>
+                                        <div class="modal1 fade" id="deletePdf" role="dialog">
+                                            <div class="modal-dialog">
+
+                                              <!-- Modal content-->
+                                              <div class="modal-content">
+
+                                                <div style="padding-bottom: 30px" class="modal-body">
+                                                 <form action="{% url 'myApp:deletePdf' %}" id="deleteForm" method="post">
+                                                    {% csrf_token %}
+
+                                                      <div class="form-group">
+
+                                                          <p style="font-size: 17px"> Do you want to delete this file??</p><br><br>
+
+                                                        <div  class="col-sm-offset-2 col-sm-8">
+                                                            <input type = "hidden" id="{{forloop.counter }}deleteID" name = "Field" value = "{{ item.pdfID }}" />
+                                                            <button value="submit" class="btn btn-success">Confirm</button>
+
+                                                          <button  data-dismiss="modal" class="btn btn-info">Cancel</button>
+                                                        </div>
+
+                                                      </div>
+                                                  </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br><br>
+
+
+    <div id="favourites" style="padding-top: 30px; padding-bottom: 30px"class="card3">
+
+        <h3  align="left" style="font-family:'Algerian'; font-size:30px;padding-left: 30px; color: blue">Lectures which may interest you :</h3>
+
+        {% for item in tag_results %}
+            <div class="row">
+                <div class="container1" align="center" >
+                    <form  action="{% url 'myApp:showPdf' %}" id="previewForm" method="post" target="_blank">
+                        {% csrf_token %}
+                    <div class="card2">
+                        <div class="row">
+                            <div class="container1 column1" align="left" id="{{ item.fileName }}" >
+                                <h2 id="{{forloop.counter }}fileName" style="font-family: 'Tahoma';font-size:25px"><b>{{ item.fileName }}</b> </h2>
+                                <h3 id="{{forloop.counter }}CourseTeacher"style="font-family: 'Tahoma';font-size:17px" ><b>{{ item.CourseTeacher }}</b></h3>
+                                <p id="{{forloop.counter }}uploadDate" style="font-family: 'Tahoma';font-size:13px" ><b>{{ item.uploadDate }}</b></p>
+                            </div>
+                            <div class="column2" align="center">
+                                <!--<h1><i class="em em---1"></i></h1>-->
+                                <br>
+                                <br>
+                                <input type = "hidden" id="{{forloop.counter }}pdfID" name = "Field" value = "{{ item.pdfID }}" />
+                                <button value="submit" style="font-size: 18px" class="btn btn-info1">Preview</button>
+
+                                {% if item.VoteButton == "Vote" %}
+                                    <input onclick="change({{forloop.counter}})" type="button" class="btn btn-success1" value="Vote" id="{{forloop.counter}}Vote"/>
+                                 {% else %}
+                                    <input onclick="change({{forloop.counter}})" type="button" class="btn" value="UnVote" id="{{forloop.counter}}Vote"/>
+                                {% endif %}
+
+                                <label style="font-family: 'Algerian';font-size: 22px;padding-left: 8px;padding-top: 8px"id="{{forloop.counter}}VoteCount"> {{ item.vote }}</label>
+
+                                <script type="text/javascript">
+                                    function change(id){
+                                        $.ajax({
+                                            url: 'User/VoteUpdate/',
+                                            data: {'pdfID': document.getElementById(id+"pdfID").value},
+                                            dataType: 'json',
+                                            success: function (data) {
+                                                window.location.replace("/user/UserProfile");
+                                            }
+                                        });
+                                    }
+                                </script>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <div id="suggestions" style="padding-top: 30px; padding-bottom: 30px"class="card3">
+
+        <h3  align="left" style="font-family:'Algerian'; font-size:30px;padding-left: 30px; color: blue">You may also Like</h3>
+
+        {% for item in Reco_results %}
+            <div class="row">
+                <div class="container1" align="center" >
+                    <form  action="{% url 'myApp:showPdf' %}" id="previewForm" method="post" target="_blank">
+                        {% csrf_token %}
+                    <div class="card2">
+                        <div class="row">
+                            <div class="container1 column1" align="left" id="{{ item.fileName }}" >
+                                <h2 id="{{forloop.counter }}fileName" style="font-family: 'Tahoma';font-size:25px"><b>{{ item.fileName }}</b> </h2>
+                                <h3 id="{{forloop.counter }}CourseTeacher"style="font-family: 'Tahoma';font-size:17px" ><b>{{ item.CourseTeacher }}</b></h3>
+                                <p id="{{forloop.counter }}uploadDate" style="font-family: 'Tahoma';font-size:13px" ><b>{{ item.uploadDate }}</b></p>
+                            </div>
+                            <div class="column2" align="center">
+                                <!--<h1><i class="em em---1"></i></h1>-->
+                                <br>
+                                <br>
+                                <input type = "hidden" id="{{forloop.counter }}pdfID" name = "Field" value = "{{ item.pdfID }}" />
+                                <button value="submit" style="font-size: 18px" class="btn btn-info1">Preview</button>
+
+                                {% if item.VoteButton == "Vote" %}
+                                    <input onclick="change({{forloop.counter}})" type="button" class="btn btn-success1" value="Vote" id="{{forloop.counter}}Vote"/>
+                                 {% else %}
+                                    <input onclick="change({{forloop.counter}})" type="button" class="btn" value="UnVote" id="{{forloop.counter}}Vote"/>
+                                {% endif %}
+
+                                <label style="font-family: 'Algerian';font-size: 22px;padding-left: 8px;padding-top: 8px"id="{{forloop.counter}}VoteCount"> {{ item.vote }}</label>
+
+                                <script type="text/javascript">
+                                    function change(id){
+                                        $.ajax({
+                                            url: 'User/VoteUpdate/',
+                                            data: {'pdfID': document.getElementById(id+"pdfID").value},
+                                            dataType: 'json',
+                                            success: function (data) {window.location.replace("/user/UserProfile");
+                                             window.location.hash = '#suggestions';}
+                                        });
+                                    }
+                                </script>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+</body>
+</html>

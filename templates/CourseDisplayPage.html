@@ -1,0 +1,154 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ঝটপট ক্লাস নোট</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.maateen.me/charukola-ultra-light/font.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <link href="https://fonts.maateen.me/mukti/font.css" rel="stylesheet">
+    <link href="{% static "myApp/myCSS.css" %}"rel="stylesheet">
+    <script type="text/javascript">
+        $(function(){
+          window.location.hash = '#Courses';
+        });
+    </script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+          <a onclick="goHome()" id="logo" style="font-size: x-large" class="navbar-brand" href="#">ঝটপট ক্লাস নোট</a>
+            <script>
+                function goHome() {
+                    window.location.replace('user/home')
+                }
+            </script>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+
+        <ul class="nav navbar-nav">
+          <li ><a style="color: white; font-size: large" href="#About">About</a></li>
+          <li><a style="color: white; font-size: large" href="#Courses">Courses</a></li>
+          <li><a style="color: white; font-size: large" href="#Contact">Contact</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+               {% if UserName == "x" %}
+                   <li><a id="regBtn" onclick="Reg()" style="color: white; font-size: large" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                   <li><a id="loginBtn" onclick="LogIn()" style="color: white; font-size: large" href="#">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+               {% else %}
+                   <li><a id="UserProfile" onclick="ProfileGo()" id="UserName" style="color: white; font-size: large" href="#">{{ UserName }}</a></li>
+                   <li><a id="logout" onclick="LogOut()" style="color: white; font-size: large" href="#"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+               {% endif %}
+        </ul>
+
+        <script type="text/javascript">
+            function ProfileGo(){window.location.replace("/user/UserProfile");}
+            function Reg(){window.location.replace("/user/registration");}
+            function LogIn(){window.location.replace("/user/login");}
+            function LogOut(){window.location.replace("/user/logout");}
+        </script>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- carousel started -->
+
+
+    <div class="container" style="width: 100%">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" style="height: 550px">
+
+          <div class="item active">
+
+            <img src="{% static "myApp/1.jpg" %}"  alt="1" style="width:100%;">
+          </div>
+
+          <div class="item">
+            <img src="{% static "myApp/2.jpg" %}" alt="2" style="width:100%;">
+          </div>
+
+          <div class="item">
+           <img src="{% static "myApp/4.jpg" %}" alt="3" style="width:100%;">
+          </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+
+<!--jumbotron-->
+ <br>
+<br>
+        <div class="container"  id="About">
+          <div class="jumbotron" style="background-color: white">
+
+
+            <h1 style="font-family: 'CharukolaUltraLight';color: #0af ">কেন আমাদের এই প্রচেষ্টা</h1>
+
+              <br>
+              <br>
+            <p style="font-family: 'Mukti'">আমাদের দেশের শিক্ষা ব্যবস্থা এমন যে উচ্চ মাধ্যমিক পাশ করে বিশ্ববিদ্যালয়ে প্রবেশ করলে ছেলে মেয়েরা সর্বপ্রথম যে সমস্যায় পড়ে তাহল কিভাবে পড়ালেখা করলে ভাল রেজাল্ট করা যায়।
+ঊচ্চ মাধ্যমিকে শিক্ষার্থীরা বিভিন্ন স্যার, ভাইয়ার কাছ থেকে পড়াশোনার বেসিক গাইডলাইন পেত এবং কোন বিষয়ে কি কিভাবে পড়া লাগবে তা নিয়ে একটি সুস্পষ্ট আইডিয়া  থাকত। কিন্তু বিশ্ববিদ্যালয়ে এই ধরনের সুযোগ সুবিধা কম বলে, ছেলে মেয়েরা প্রায় সময় দেখা যায় বন্ধু বান্ধব এর কাছে ক্লাস নোট খুঁজে বেড়ায়। শিক্ষার্থীদের এই ধরণের সমস্যা থেকে মুক্তি দেওয়ার জন্য
+আমাদের এই ছোট উদ্যোগ। এই খানে বুয়েট, চুয়েট, কুয়েট ,রুয়েট ও ঢাকা মেডিকেল এর শিক্ষার্থীরা যেমন তাদের ক্লাস নোট আপলোড করতে পারবে, পাশাপাশি যেকোনো সময় যেকোনো বিষয়ের উপর বিভিন্ন স্যারদের  লেকচার ডাউনলোড করতে পারবে। এতে করে অনেক শিক্ষার্থী ক্লাস লেকচার তুলতে না পারার ভোগান্তির শিকার হবে না। সার্বিক ভাবে সকলেই এতে উপকৃত হবে, এই বিশ্বাস নিয়েই আমাদের এই ছোট্ট উদ্যোগ।</p>
+          </div>
+        </div>
+
+
+<br>
+
+<!--choose institution-->
+
+<div align="center"  id="Courses" >
+    <p  align="center" style="font-family: 'Cooper Black'; font-size: 50px">Choose Course</p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <form action="{% url 'myApp:Lecture' %}" method="post">
+        {% csrf_token %}
+
+        {% for item in query_results %}
+            <input type="submit" class="btn btn-default round-button"  value="{{ item.course }}" name="{{ item.course }}" />
+        {% endfor %}
+
+    </form>
+</div>
+
+</body>
+</html>

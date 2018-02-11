@@ -1,0 +1,485 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ঝটপট ক্লাস নোট</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.maateen.me/charukola-ultra-light/font.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <link href="https://fonts.maateen.me/mukti/font.css" rel="stylesheet">
+    <link href="{% static "myApp/myCSS.css" %}"rel="stylesheet">
+    <script type="text/javascript">
+        $(function(){
+          window.location.hash = '#Lecture';
+        });
+    </script>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+          <a onclick="goHome()" id="logo" style="font-size: x-large" class="navbar-brand" href="#">ঝটপট ক্লাস নোট</a>
+            <script>
+                function goHome() {
+                    window.location.replace('user/home')
+                }
+            </script>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+
+        <ul class="nav navbar-nav">
+          <li ><a style="color: white; font-size: large" href="#About">About</a></li>
+          <li><a style="color: white; font-size: large" href="#Lecture">Lecture</a></li>
+          <li><a style="color: white; font-size: large" href="#Contact">Contact</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+               {% if UserName == "x" %}
+                   <li><a id="regBtn" onclick="Reg()" style="color: white; font-size: large" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                   <li><a id="loginBtn" onclick="LogIn()" style="color: white; font-size: large" href="#">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+               {% else %}
+                   <li><a id="UserProfile" onclick="ProfileGo()"id="UserName" style="color: white; font-size: large" href="#">{{ UserName }}</a></li>
+                   <li><a id="logout" onclick="LogOut()" style="color: white; font-size: large" href="#"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+               {% endif %}
+        </ul>
+
+        <script type="text/javascript">
+            function ProfileGo(){window.location.replace("/user/UserProfile");}
+            function Reg(){window.location.replace("/user/registration");}
+            function LogIn(){window.location.replace("/user/login");}
+            function LogOut(){window.location.replace("/user/logout");}
+        </script>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- carousel started -->
+
+
+    <div class="container" style="width: 100%">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" style="height: 550px">
+
+          <div class="item active">
+
+            <img src="{% static "myApp/1.jpg" %}"  alt="1" style="width:100%;">
+          </div>
+
+          <div class="item">
+            <img src="{% static "myApp/2.jpg" %}" alt="2" style="width:100%;">
+          </div>
+
+          <div class="item">
+           <img src="{% static "myApp/4.jpg" %}" alt="3" style="width:100%;">
+          </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+
+<!--jumbotron-->
+ <br>
+<br>
+        <div class="container"  id="About">
+          <div class="jumbotron" style="background-color: white">
+
+
+            <h1 style="font-family: 'CharukolaUltraLight';color: #0af ">কেন আমাদের এই প্রচেষ্টা</h1>
+
+              <br>
+              <br>
+            <p style="font-family: 'Mukti'">আমাদের দেশের শিক্ষা ব্যবস্থা এমন যে উচ্চ মাধ্যমিক পাশ করে বিশ্ববিদ্যালয়ে প্রবেশ করলে ছেলে মেয়েরা সর্বপ্রথম যে সমস্যায় পড়ে তাহল কিভাবে পড়ালেখা করলে ভাল রেজাল্ট করা যায়।
+ঊচ্চ মাধ্যমিকে শিক্ষার্থীরা বিভিন্ন স্যার, ভাইয়ার কাছ থেকে পড়াশোনার বেসিক গাইডলাইন পেত এবং কোন বিষয়ে কি কিভাবে পড়া লাগবে তা নিয়ে একটি সুস্পষ্ট আইডিয়া  থাকত। কিন্তু বিশ্ববিদ্যালয়ে এই ধরনের সুযোগ সুবিধা কম বলে, ছেলে মেয়েরা প্রায় সময় দেখা যায় বন্ধু বান্ধব এর কাছে ক্লাস নোট খুঁজে বেড়ায়। শিক্ষার্থীদের এই ধরণের সমস্যা থেকে মুক্তি দেওয়ার জন্য
+আমাদের এই ছোট উদ্যোগ। এই খানে বুয়েট, চুয়েট, কুয়েট ,রুয়েট ও ঢাকা মেডিকেল এর শিক্ষার্থীরা যেমন তাদের ক্লাস নোট আপলোড করতে পারবে, পাশাপাশি যেকোনো সময় যেকোনো বিষয়ের উপর বিভিন্ন স্যারদের  লেকচার ডাউনলোড করতে পারবে। এতে করে অনেক শিক্ষার্থী ক্লাস লেকচার তুলতে না পারার ভোগান্তির শিকার হবে না। সার্বিক ভাবে সকলেই এতে উপকৃত হবে, এই বিশ্বাস নিয়েই আমাদের এই ছোট্ট উদ্যোগ।</p>
+          </div>
+        </div>
+
+
+<br>
+
+<!--choose institution-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 60%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+
+</style>
+
+<style>
+  .btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.btn-default {
+  color: #fff;
+  background-color: #0af;
+  border-color: #ccc;
+}
+.contribute-button {
+      width: 150px;
+      height: 50px;
+
+      padding-left:  5px;
+      background-color: green;
+      font-size: 15px;
+
+}
+  .btn-success1 {
+  color: #fff;
+  background-color: green;
+  border-color: #4cae4c;
+}
+    .btn-info1 {
+  color: #fff;
+  background-color: #00aaff;
+  border-color: #46b8da;
+}
+
+
+</style>
+
+<style>
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Create two equal columns that floats next to each other */
+.column1 {
+    float: left;
+    width: 70%;
+    padding: 10px;
+
+}
+
+.column2 {
+    float: left;
+    width: 30%;
+    padding: 10px;
+}
+
+.column3 {
+    float: left;
+    width: 60%;
+    padding-top: 0px;
+    padding-right: 50px
+
+}
+
+.column4 {
+    float: left;
+    width: 20%;
+    padding-top: 0px;
+
+}
+
+.column5 {
+    float: left;
+    width: 20%;
+    padding-left: 45px;
+    padding-top: 15px;
+    
+
+}
+
+.container1 {
+    padding: 2px 30px;
+
+
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+
+<style>
+    .modal1 {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        z-index: 1100;
+        display: none;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        outline: 0;
+    }
+</style>
+
+<div  align="center" id="Lecture" >
+    <br>
+    <br>
+    <br>
+    <div class="column3">
+        <p  align="right" style="font-family: 'Cooper Black'; font-size: 50px">Available Lectures</p>
+    </div>
+
+    <div class="column5">
+
+
+        <button onclick="ModalToggle()" data-toggle="modal" href="#" class="btn btn-default contribute-button" >Contribute</button>
+
+
+
+        <div  class="modal1 fade" id="UploadBook" role="dialog">
+            <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h2 class="modal-title" align="center" >Upload Lecture</h2>
+                    </div>
+                    <div class="modal-body">
+                      <form class="form-horizontal" enctype="multipart/form-data" method="post" action="{% url 'myApp:uploadBook' %}">
+                          {% csrf_token %}
+
+                          <div class="form-group">
+                            <label class="control-label col-sm-3" for="fileName">File name:</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="fileName" placeholder="Enter File Name" name="Title">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-sm-3" for="writerName">Course Teacher:</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="writerName" placeholder="Enter book writer name" name="CourseTeacher">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                          <div class="form-group">
+                              <label class="control-label col-sm-3" for="tag">Tag:</label>
+                              <div class="col-sm-8">
+                                  <select  class="form-control" id="Tag" name="Tag">
+                                      <option value="None">None</option>
+                                      <option value="AI">AI</option>
+                                      <option value="Algorithm">Algorithm</option>
+                                      <option value="Biotechnology">Biotechnology</option>
+                                      <option value="Communication">Communication</option>
+                                      <option value="ConcreteStructure">ConcreteStructure</option>
+                                      <option value="Database">Database</option>
+                                      <option value="Electronics">Electronics</option>
+                                      <option value="FluidMechanics">FluidMechanics</option>
+                                      <option value="Kinematics">Kinematics</option>
+                                      <option value="Mechatronics">Mechatronics</option>
+                                      <option value="NanoTechnology">NanoTechnology</option>
+                                      <option value="Power">Power</option>
+                                      <option value="Programming">Programming</option>
+                                      <option value="Robotics">Robotics</option>
+                                      <option value="SolidMechanics">SolidMechanics</option>
+                                      <option value="Thermodynamics">Thermodynamics</option>
+                                  </select>
+                              </div>
+                          </div>
+
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="col-sm-10">
+                                    <input type="file" id="choose" name="File" accept="application/vnd.sealed-ppt,application/pdf,application/zip,application/x-zip,application/x-zip-compressed,application/octet-stream">
+                                </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-offset-6 col-sm-8">
+                              <button value="submit" class="btn btn-default">Submit</button>
+                            </div>
+                          </div>
+                      </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function ModalToggle(){
+                $.ajax({
+                    url: 'User/SendUserName',
+                    data: {},
+                    dataType: 'json',
+                    success: function (data) {
+                        if(data.UserName!="x") {$('#UploadBook').modal('show');}
+                        else {window.location.replace("/user/login")}
+                    }
+                });
+            }
+        </script>
+
+
+    </div>
+
+    <div class="column4">
+        <form class="form-horizontal" id ="formID" action="{% url 'myApp:SortBy' %}" method="post">
+            {% csrf_token %}
+
+            <label  style="color: #00aaff" class="control-label col-sm-4" for="sort">Sort by :</label>
+
+            <div class="col-sm-10">
+                <select  class="form-control" id="sort" name="Field" onchange="this.form.submit()">
+                    {% if selectedItem == "vote" %}
+                         <option value="vote" selected>Upvote</option>
+                     {% else %}
+                        <option value="vote">Upvote</option>
+                    {% endif %}
+                    {% if selectedItem == "uploadDate" %}
+                         <option value="uploadDate" selected>Upload Date</option>
+                     {% else %}
+                        <option value="uploadDate">Upload Date</option>
+                    {% endif %}
+                    {% if selectedItem == "lastAccessed" %}
+                         <option value="lastAccessed" selected>Recent Accessed</option>
+                     {% else %}
+                        <option value="lastAccessed">Recent Accessed</option>
+                    {% endif %}
+                </select>
+
+            </div>
+        </form>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    {% for item in query_results %}
+        <form  action="{% url 'myApp:showPdf' %}" id="previewForm" method="post" target="_blank">
+    {% csrf_token %}
+        <div class="card">
+            <div class="row">
+                <div class="container1 column1" align="left" >
+                    <h2><label id="{{forloop.counter }}fileName" style="color: blue"><b>{{ item.fileName }}</b></label></h2>
+                    <h3><label id="{{forloop.counter }}CourseTeacher" ><b>{{ item.CourseTeacher }}</b></label></h3>
+                    <p><label id="{{forloop.counter }}uploadDate" ><b>{{ item.uploadDate }}</b></label></p>
+                </div>
+                <div class="column2" align="center">
+                    <!--<h1><i class="em em---1"></i></h1>-->
+                    <br>
+                    <br>
+                    <input type = "hidden" id="{{forloop.counter }}pdfID" name = "Field" value = "{{ item.pdfID }}" />
+                    <button value="submit" class="btn btn-info1">Preview</button>
+                    {% if item.VoteButton == "Vote" %}
+                        <input onclick="change({{forloop.counter}})" type="button" class="btn btn-success1" value="Vote" id="{{forloop.counter}}Vote"/>
+                     {% else %}
+                        <input onclick="change({{forloop.counter}})" type="button" class="btn" value="UnVote" id="{{forloop.counter}}Vote"/>
+                    {% endif %}
+
+                    <label style="font-family: 'Algerian';font-size: 22px;padding-left: 8px;padding-top: 8px" id="{{forloop.counter}}VoteCount"> {{ item.vote }}</label>
+
+                    <script type="text/javascript">
+                        function change(id){
+                            $.ajax({
+                                url: 'User/VoteChange',
+                                data: {
+                                    'pdfID': document.getElementById(id+"pdfID").value,
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.valid == "Yes") {
+                                        for (var i = 1; i <= data.updated_results.length; i++) {
+                                            document.getElementById(i + "fileName").innerHTML = data.updated_results[i - 1]['fileName']
+                                            document.getElementById(i + "CourseTeacher").innerHTML = data.updated_results[i - 1]['CourseTeacher']
+                                            document.getElementById(i + "uploadDate").innerHTML = data.updated_results[i - 1]['uploadDate']
+                                            document.getElementById(i + "VoteCount").innerHTML = data.updated_results[i - 1]['vote']
+                                            document.getElementById(i + "pdfID").value = data.updated_results[i - 1]['pdfID']
+
+                                            var elem = document.getElementById(i + "Vote")
+                                            if (data.updated_results[i - 1]['VoteButton'] == "UnVote") {
+                                                elem.value = "UnVote";
+                                                elem.setAttribute("class", "btn")
+                                            }
+                                            else {
+                                                elem.value = "Vote";
+                                                elem.setAttribute("class", "btn btn-success1");
+                                            }
+                                        }
+                                    }
+                                    else {
+                                        window.location.replace("/user/login");
+                                    }
+                                }
+                            });
+                        }
+                    </script>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        </form>
+    {% endfor %}
+</div>
+</body>
+</html>

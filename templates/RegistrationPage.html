@@ -1,0 +1,407 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ঝটপট ক্লাস নোট</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.maateen.me/charukola-ultra-light/font.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <link href="https://fonts.maateen.me/mukti/font.css" rel="stylesheet">
+    <link href="{% static "myApp/myCSS.css" %}"rel="stylesheet">
+
+</head>
+<body data-spy="scroll" data-offset="50" background="http://ooodocs.sourceforge.net/graphics/1.1/ooo1.1-elements-background_v1.png">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a onclick="goHome()" id="logo" style="font-size: x-large" class="navbar-brand" href="#">ঝটপট ক্লাস নোট</a>
+            <script>
+                function goHome() {
+                    window.location.replace('user/home')
+                }
+            </script>
+        </div>
+        <div>
+        </div>
+      </div>
+    </nav>
+
+    <style>
+    #snackbar1 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+
+    #snackbar1.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+    </style>
+
+    <style>
+    #snackbar2 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+
+    #snackbar2.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+    </style>
+
+    <style>
+    #snackbar3 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+
+    #snackbar3.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+    </style>
+
+    <style>
+    #snackbar4 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+
+    #snackbar4.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+    </style>
+
+    <style>
+    #snackbar5 {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+    }
+
+    #snackbar5.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+    </style>
+
+    <style>
+    .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 45%;
+            border-radius: 20px;
+            padding-bottom: 5px;
+            padding-top: 20px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    </style>
+    <style>
+    *{
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+    }
+    /* Create two equal columns that floats next to each other */
+    .column1 {
+        float: left;
+        width: 70%;
+        padding: 10px;
+    }
+    .column2 {
+        float: left;
+        width: 30%;
+        padding: 10px;
+    }
+    .column3 {
+        float: left;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .column4 {
+        float: left;
+        width: 20%;
+        padding-top: 0px;
+    }
+    .column5 {
+        float: left;
+        width: 20%;
+        padding-left: 45px;
+        padding-top: 15px;
+    }
+
+    .container1 {
+        padding: 2px 30px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    </style>
+
+    <div style="padding-top: 30px" align="center">
+
+        <div class="card">
+            <div  align="center" >
+                <h2  style="font-family:'Algerian';font-size: 40px;color: #00aaff">Sign Up</h2>
+            </div>
+            <div style="padding-top: 30px" class="row">
+                <div class="container1 " align="left" >
+                    <label class="control-label col-sm-2"style="padding-top: 7px ;font-size: 17px ;color: #00aaff" for="Name">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="Name" placeholder="Enter Name" name="Name">
+                    </div>
+                    <br>
+                    <br>
+                    <label class="control-label col-sm-2"style="padding-top: 7px ;font-size: 17px ;color: #00aaff" for="Institution">Institution:</label>
+                    <div class="col-sm-10">
+                        <select  class="form-control" id="Institution" name="Institution">
+                            <option value="BUET">BUET</option>
+                            <option value="CUET">CUET</option>
+                            <option value="KUET">KUET</option>
+                            <option value="RUET">RUET</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <label class="control-label col-sm-2" style="padding-top: 7px ;font-size: 17px ;color: #00aaff" for="email">Email:</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="Email">
+                    </div>
+                    <br>
+                    <br>
+                    <label class="control-label col-sm-2" style="padding-top: 7px ;font-size: 17px ;color: #00aaff"for="pwd">Password:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="Password">
+                    </div>
+                    <br>
+                    <br>
+                    <label class="control-label col-sm-2" style="padding-top: 7px ;font-size: 17px ;color: #00aaff"for="pwd">Confirm:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="Cpwd" placeholder="Confirm password" name="ConfirmPassword">
+                    </div>
+
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <label id="SignUpMessage"></label>
+                    </div>
+
+                    <div class="col-sm-offset-5 col-sm-10">
+                        <button onclick="SignUp()" value="submit" class="btn btn-default">Submit</button>
+                    </div>
+
+                    <div id="snackbar1">Invaild Email address</div>
+                    <div id="snackbar2">Invaild Name</div>
+                    <div id="snackbar3">Email already exists</div>
+                    <div id="snackbar4">Confirm password does not match</div>
+                    <div id="snackbar5">Password must be at least 8 characters</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function SignUp(){
+            $.ajax({
+                url: 'User/addEntry',
+                data: {
+                    'Name' : document.getElementById("Name").value,
+                    'Institution' : document.getElementById("Institution").value,
+                    'email': document.getElementById("email").value,
+                    'password' : document.getElementById("pwd").value,
+                    'Confirm' :  document.getElementById("Cpwd").value,
+                },
+                dataType: 'json',
+                success: function (data){
+                    if(data.message==0) window.location.replace("/user/goBackToWhereYouEnded");
+                    else{
+                        var x = document.getElementById("snackbar"+data.message);
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
